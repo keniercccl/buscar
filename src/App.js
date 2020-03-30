@@ -7,17 +7,20 @@ function App() {
 
  const datosBusqueda = (termino) => {
    console.log(termino);
+   
     }
   
   return (
     <header className="App-header">
-        <div className="jumbotron">
-            
-          <p className="lead text-center">Buscador de imagenes</p>
-          <Buscador 
-            datosBusqueda = {datosBusqueda}
-          />
-        </div>        
+        <div className="jumbotron jumbotron-fluid">
+           <div className="container">
+           <p className="text-center">Buscador de imagenes</p>
+            <Buscador 
+              datosBusqueda = {datosBusqueda}
+            />
+             </div> 
+        </div>   
+         
     </header>
   );
 }

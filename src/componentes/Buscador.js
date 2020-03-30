@@ -1,6 +1,20 @@
-import React, { createContext, Component } from 'react';
+import React, { Component } from 'react';
 
 class Buscador extends Component {
+
+    state = {termino : ''}
+
+    consultarApi = () => {
+        const url = `https://pixabay.com/api/?key=15803042-7eea46a8031b0fc652b469534&q=${this.state.termino}`
+    }
+
+    datosBusqueda = (termino) =>{
+        this.setState({
+            termino: this.busquedaRef.current.value
+        }, ()=>{
+            this.consultarApi();
+        })
+    }
     
     busquedaRef = React.createRef();
 
@@ -12,19 +26,18 @@ class Buscador extends Component {
 
     render(){
         return(
-            <form onSubmit={this.obtenerDatos}>
+            <form>
                 <div className="row">
                     
-                    <div className="form-group col-md-8">
-                        <input ref={this.busquedaRef} type="text" className="form-control form-control-lg"
-                        placeholder = "Busca tu Imagen" />
-                    </div>
+                        <div className="form-group col-md-8">
+                            <input className="form-control"  type="text" placeholder="Buscar tu imagen" />
+                        </div>
 
-                    <div className="form-group col-md-4">
-                        <input type="submit" className="btn btn-lg btn-danger btn-block"
-                        value = "Buscar.." />
-                    </div>
-
+                        <div className="form-group col-md-4">
+                            <button onClick={this.datosBusqueda} 
+                            type="button" className="btn btn-primary disabled">Buscar</button>
+                        </div>
+                     {this.state.termino}
                 </div>
             </form>
         );
