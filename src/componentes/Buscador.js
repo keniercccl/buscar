@@ -34,7 +34,7 @@ class Buscador extends Component {
                         </div>
 
                         <div className="form-group col-md-4">
-                            <button onClick={this.datosBusqueda} 
+                            <button ref={this.busquedaRef} onClick={this.datosBusqueda} 
                             type="button" className="btn btn-primary disabled">Buscar</button>
                         </div>
                      {this.state.termino}

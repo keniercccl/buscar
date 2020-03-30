@@ -6,8 +6,12 @@ import './App.css';
 function App() {
 
  const datosBusqueda = (termino) => {
+   this.setState({
+
+   }, () => {
+     this.consultarApi();
+   })
    console.log(termino);
-   
     }
   
   return (
